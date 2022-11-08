@@ -10,8 +10,8 @@ const Header = (props: Props) => {
 
   return (
     <div>
-      <nav>
-        <div>
+      <nav className="flex justify-between">
+        <div className="flex items-center text-sm space-x-2">
           {address ? (
             <button onClick={disconnect} className="connectWalletBtn">
               Hi, {address.slice(0, 4) + "..." + address.slice(-4)}
@@ -21,6 +21,9 @@ const Header = (props: Props) => {
               Connect your wallet
             </button>
           )}
+
+          <p className="hidden md:inline-flex cursor-pointer">Daily Dose</p>
+          <p className="hidden md:inline-flex cursor-pointer">Help & Contact</p>
         </div>
       </nav>
     </div>

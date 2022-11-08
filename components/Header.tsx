@@ -23,14 +23,14 @@ const Header = (props: Props) => {
             </button>
           )}
 
-          <p className="hidden md:inline-flex cursor-pointer">Daily Dose</p>
-          <p className="hidden md:inline-flex cursor-pointer">Help & Contact</p>
+          <p className="headerLink">Daily Dose</p>
+          <p className="headerLink">Help & Contact</p>
         </div>
 
         <div className="flex items-center space-x-4 text-sm">
-          <p className="hidden md:inline-flex cursor-pointer">Ship to</p>
-          <p className="hidden md:inline-flex cursor-pointer">Sell</p>
-          <p className="hidden md:inline-flex cursor-pointer">Watchlist</p>
+          <p className="headerLink">Ship to</p>
+          <p className="headerLink">Sell</p>
+          <p className="headerLink">Watchlist</p>
 
           <Link href="/addItem">Add to Inventory</Link>
         </div>

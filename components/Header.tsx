@@ -41,6 +41,9 @@ const Header = (props: Props) => {
           <Link href="/addItem" className="flex items-center hover:link">
             Add to Inventory <ChevronDownIcon className="h-4" />{" "}
           </Link>
+
+          <BellIcon className="h-6 w-6" />
+          <ShoppingCartIcon className="h-6 w-6" />
         </div>
       </nav>
     </div>

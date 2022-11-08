@@ -27,9 +27,9 @@ const Header = (props: Props) => {
         </div>
 
         <div className="flex items-center space-x-4 text-sm">
-          <p>Ship to</p>
-          <p>Sell</p>
-          <p>Watchlist</p>
+          <p className="hidden md:inline-flex cursor-pointer">Ship to</p>
+          <p className="hidden md:inline-flex cursor-pointer">Sell</p>
+          <p className="hidden md:inline-flex cursor-pointer">Watchlist</p>
         </div>
       </nav>
     </div>

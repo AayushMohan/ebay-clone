@@ -25,6 +25,12 @@ const Header = (props: Props) => {
           <p className="hidden md:inline-flex cursor-pointer">Daily Dose</p>
           <p className="hidden md:inline-flex cursor-pointer">Help & Contact</p>
         </div>
+
+        <div className="flex items-center space-x-4 text-sm">
+          <p>Ship to</p>
+          <p>Sell</p>
+          <p>Watchlist</p>
+        </div>
       </nav>
     </div>
   );

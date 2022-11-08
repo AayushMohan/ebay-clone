@@ -1,6 +1,12 @@
 import React from "react";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 import Link from "next/link";
+import {
+  BellIcon,
+  ShoppingCartIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 
 type Props = {};
 
@@ -32,7 +38,9 @@ const Header = (props: Props) => {
           <p className="headerLink">Sell</p>
           <p className="headerLink">Watchlist</p>
 
-          <Link href="/addItem">Add to Inventory</Link>
+          <Link href="/addItem" className="flex items-center hover:link">
+            Add to Inventory <ChevronDownIcon className="h-4" />{" "}
+          </Link>
         </div>
       </nav>
     </div>

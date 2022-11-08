@@ -14,7 +14,7 @@ const Header = (props: Props) => {
         <div>
           {address ? (
             <button onClick={disconnect} className="connectWalletBtn">
-              Hi, {address}
+              Hi, {address.slice(0, 4) + "..." + address.slice(-4)}
             </button>
           ) : (
             <button onClick={connectWithMetamask} className="connectWalletBtn">

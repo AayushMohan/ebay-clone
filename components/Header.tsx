@@ -1,5 +1,6 @@
 import React from "react";
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
+import Link from "next/link";
 
 type Props = {};
 
@@ -30,6 +31,8 @@ const Header = (props: Props) => {
           <p className="hidden md:inline-flex cursor-pointer">Ship to</p>
           <p className="hidden md:inline-flex cursor-pointer">Sell</p>
           <p className="hidden md:inline-flex cursor-pointer">Watchlist</p>
+
+          <Link href="/addItem">Add to Inventory</Link>
         </div>
       </nav>
     </div>

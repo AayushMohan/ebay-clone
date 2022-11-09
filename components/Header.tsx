@@ -46,6 +46,7 @@ const Header = (props: Props) => {
           <ShoppingCartIcon className="h-6 w-6" />
         </div>
       </nav>
+      <hr className="mt-2" />
     </div>
   );
 };

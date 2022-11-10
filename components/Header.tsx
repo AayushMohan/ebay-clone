@@ -77,6 +77,7 @@ const Header = (props: Props) => {
         </div>
 
         <button>Search</button>
+        <button>List Item</button>
       </section>
     </div>
   );

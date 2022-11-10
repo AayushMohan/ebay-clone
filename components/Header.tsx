@@ -7,6 +7,7 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 type Props = {};
 
@@ -16,7 +17,7 @@ const Header = (props: Props) => {
   const address = useAddress();
 
   return (
-    <div>
+    <div className="max-w-6xl mx-auto p-2">
       <nav className="flex justify-between">
         <div className="flex items-center text-sm space-x-2">
           {address ? (
@@ -46,7 +47,21 @@ const Header = (props: Props) => {
           <ShoppingCartIcon className="h-6 w-6" />
         </div>
       </nav>
-      {/* <hr className="mt-2" /> */}
+      <hr className="mt-2" />
+
+      <section>
+        <div className="h-16 w-16 sm:w-28 md:w-44 cursor-pointer flex-shrink-0">
+          <Link href="/">
+            <Image
+              className="h-full w-full object-contain p-2"
+              alt="ThirdWeb Logo"
+              src="https://links.papareact.com/bdb"
+              width={100}
+              height={100}
+            />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

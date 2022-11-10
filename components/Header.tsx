@@ -84,6 +84,21 @@ const Header = (props: Props) => {
         </button>
       </section>
       <hr />
+
+      <section className="flex py-3 space-x-6 text-xs md:text-sm whitespace-nowrap justify-center">
+        <p className="link">Home</p>
+        <p className="link">Electronics</p>
+        <p className="link">Computer</p>
+        <p className="link hidden sm:inline">Video Games</p>
+        <p className="link hidden sm:inline">Home & Garden</p>
+        <p className="link hidden md:inline">Health & Beauty</p>
+        <p className="link hidden lg:inline">Collectibles and Art</p>
+        <p className="link hidden lg:inline">Books</p>
+        <p className="link hidden lg:inline">Music</p>
+        <p className="link hidden xl:inline">Deals</p>
+        <p className="link hidden xl:inline">Other</p>
+        <p className="link">More</p>
+      </section>
     </div>
   );
 };

@@ -75,6 +75,8 @@ const Header = (props: Props) => {
             placeholder="Search for Anything"
           />
         </div>
+
+        <button>Search</button>
       </section>
     </div>
   );

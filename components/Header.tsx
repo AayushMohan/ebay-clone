@@ -53,13 +53,27 @@ const Header = (props: Props) => {
         <div className="h-16 w-16 sm:w-28 md:w-44 cursor-pointer flex-shrink-0">
           <Link href="/">
             <Image
-              className="h-full w-full object-contain p-2"
+              className="h-full w-full object-contain"
               alt="ThirdWeb Logo"
               src="https://links.papareact.com/bdb"
               width={100}
               height={100}
             />
           </Link>
+        </div>
+
+        <button className="hidden lg:flex items-center space-x-2 w-20">
+          <p className="text-gray-600 text-sm">Shop by Category</p>
+          <ChevronDownIcon className="h-4 flex-shrink-0" />
+        </button>
+
+        <div className="flex items-center space-x-2 px-2 md:px-5 py-2 border-black border-2 flex-1">
+          <MagnifyingGlassIcon className="w-5 text-gray-400" />
+          <input
+            className="flex-1 outline-none"
+            type="text"
+            placeholder="Search for Anything"
+          />
         </div>
       </section>
     </div>

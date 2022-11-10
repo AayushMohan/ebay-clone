@@ -49,7 +49,7 @@ const Header = (props: Props) => {
       </nav>
       <hr className="mt-2" />
 
-      <section>
+      <section className="flex items-center space-x-2 py-5">
         <div className="h-16 w-16 sm:w-28 md:w-44 cursor-pointer flex-shrink-0">
           <Link href="/">
             <Image
@@ -76,9 +76,14 @@ const Header = (props: Props) => {
           />
         </div>
 
-        <button>Search</button>
-        <button>List Item</button>
+        <button className="hidden sm:inline bg-blue-600 text-white px-5 md:px-10 py-2 border-2 border-blue-600">
+          Search
+        </button>
+        <button className="border-blue-600 border-2 px-5 md:px-10 py-2 text-blue-600 hover:bg-blue-600/50 hover:text-white cursor-pointer">
+          List Item
+        </button>
       </section>
+      <hr />
     </div>
   );
 };

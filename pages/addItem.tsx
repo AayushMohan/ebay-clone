@@ -19,10 +19,19 @@ const addItems = (props: Props) => {
       <main className="max-w-6xl mx-auto p-10 border">
         <h1 className="text-4xl font-bold">Add an Item to the marketplace</h1>
         <h2 className="text-xl font-semibold pt-5">Items Details</h2>
-        <p>
+
+        <p className="pb-5">
           By adding an item to the marketplace, you're essentially Minting an
           NFT of the item into your wallet which we can then list for sale!
         </p>
+
+        <div>
+          <img
+            className="border h-80 w-80 object-contain"
+            src="https://links.papareact.com/ucj"
+            alt=""
+          />
+        </div>
       </main>
     </div>
   );

@@ -19,6 +19,10 @@ const addItems = (props: Props) => {
       <main>
         <h1>Add an Item to the marketplace</h1>
         <h2>Items Details</h2>
+        <p>
+          By adding an item to the marketplace, you're essentially Minting an
+          NFT of the item into your wallet which we can then list for sale!
+        </p>
       </main>
     </div>
   );

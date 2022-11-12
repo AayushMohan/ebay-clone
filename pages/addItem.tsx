@@ -25,22 +25,30 @@ const addItems = (props: Props) => {
           NFT of the item into your wallet which we can then list for sale!
         </p>
 
-        <div>
+        <div className="flex flex-col justify-center md:flex-row">
           <img
             className="border h-80 w-80 object-contain"
             src="https://links.papareact.com/ucj"
             alt=""
           />
 
-          <form>
-            <label>Name of Item</label>
-            <input placeholder="Name of item..." type="text" />
+          <form className="flex flex-col flex-1 p-2 space-y-2">
+            <label className="font-light">Name of Item</label>
+            <input
+              className="formField"
+              placeholder="Name of item..."
+              type="text"
+            />
 
-            <label>Description</label>
-            <input placeholder="Enter Description..." type="text" />
+            <label className="font-light">Description</label>
+            <input
+              className="formField"
+              placeholder="Enter Description..."
+              type="text"
+            />
 
-            <label>Image of the Item</label>
-            <input type="file" />
+            <label className="font-light">Image of the Item</label>
+            <input className="formField" type="file" />
 
             <button>Add/Mint Item</button>
           </form>

@@ -16,7 +16,10 @@ const addItems = (props: Props) => {
     <div>
       <Header />
 
-      <main>Add an Item to the marketplace</main>
+      <main>
+        <h1>Add an Item to the marketplace</h1>
+        <h2>Items Details</h2>
+      </main>
     </div>
   );
 };

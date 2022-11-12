@@ -48,7 +48,7 @@ const addItems = (props: Props) => {
             />
 
             <label className="font-light">Image of the Item</label>
-            <input className="formField" type="file" />
+            <input type="file" />
 
             <button>Add/Mint Item</button>
           </form>

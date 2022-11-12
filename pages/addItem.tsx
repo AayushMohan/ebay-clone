@@ -25,7 +25,7 @@ const addItems = (props: Props) => {
           NFT of the item into your wallet which we can then list for sale!
         </p>
 
-        <div className="flex flex-col justify-center md:flex-row">
+        <div className="flex flex-col justify-center md:flex-row md:space-x-5">
           <img
             className="border h-80 w-80 object-contain"
             src="https://links.papareact.com/ucj"

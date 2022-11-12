@@ -31,6 +31,19 @@ const addItems = (props: Props) => {
             src="https://links.papareact.com/ucj"
             alt=""
           />
+
+          <form>
+            <label>Name of Item</label>
+            <input placeholder="Name of item..." type="text" />
+
+            <label>Description</label>
+            <input placeholder="Enter Description..." type="text" />
+
+            <label>Image of the Item</label>
+            <input type="file" />
+
+            <button>Add/Mint Item</button>
+          </form>
         </div>
       </main>
     </div>

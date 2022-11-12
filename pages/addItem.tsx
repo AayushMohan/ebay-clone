@@ -16,9 +16,9 @@ const addItems = (props: Props) => {
     <div>
       <Header />
 
-      <main className="max-w-6xl mx-auto p-10">
-        <h1>Add an Item to the marketplace</h1>
-        <h2>Items Details</h2>
+      <main className="max-w-6xl mx-auto p-10 border">
+        <h1 className="text-4xl font-bold">Add an Item to the marketplace</h1>
+        <h2 className="text-xl font-semibold pt-5">Items Details</h2>
         <p>
           By adding an item to the marketplace, you're essentially Minting an
           NFT of the item into your wallet which we can then list for sale!

@@ -16,7 +16,7 @@ const addItems = (props: Props) => {
     <div>
       <Header />
 
-      <main>
+      <main className="max-w-6xl mx-auto p-10">
         <h1>Add an Item to the marketplace</h1>
         <h2>Items Details</h2>
         <p>

@@ -30,6 +30,23 @@ const addItems = (props: Props) => {
       name: { value: string };
       description: { value: string };
     };
+
+    const metadata = {
+      name: target.name.value,
+      description: target.description.value,
+      image: image, //Image URL or File
+    };
+
+    try {
+      const tx = await contract.mintTo(address, metadata);
+      const receipt = tx.receipt; //The transaction receipt
+      const tokenId = tx.id; //The ID of the NFT Minted
+      const nft = await tx.data(); //Optional fetch details of minted NFT
+
+      console.log(receipt, tokenId, nft);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

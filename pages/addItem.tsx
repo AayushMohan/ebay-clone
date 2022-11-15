@@ -2,13 +2,15 @@ import React, { FormEvent, useState } from "react";
 import Header from "../components/Header";
 import { useAddress, useContract } from "@thirdweb-dev/react";
 import { URL } from "url";
+import { useRouter } from "next/router";
 
 type Props = {};
 
 const addItems = (props: Props) => {
+  const address = useAddress();
+  const router = useRouter();
   const [preview, setPreview] = useState<string>();
   const [image, setImage] = useState<string>();
-  const address = useAddress();
 
   const { contract } = useContract(
     process.env.NEXT_PUBLIC_COLLECTION_CONTRACT,
@@ -44,6 +46,7 @@ const addItems = (props: Props) => {
       const nft = await tx.data(); //Optional fetch details of minted NFT
 
       console.log(receipt, tokenId, nft);
+      router.push("/");
     } catch (error) {
       console.error(error);
     }

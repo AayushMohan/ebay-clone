@@ -84,7 +84,21 @@ const Create = (props: Props) => {
                   value="auctionListing"
                   className="ml-auto h-10 w-10"
                 />
+
+                <label className="border-r font-light">Price</label>
+                <input
+                  type="text"
+                  placeholder="0.5"
+                  className="bg-gray-100 p-5"
+                  name="price"
+                />
               </div>
+              <button
+                className="bg-blue-600 text-white rounded-lg p-4 mt-8"
+                type="submit"
+              >
+                Create Listing
+              </button>
             </div>
           </form>
         )}

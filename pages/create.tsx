@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import {
   useAddress,
@@ -10,6 +10,7 @@ import {
   useCreateAuctionListing,
   useCreateDirectListing,
 } from "@thirdweb-dev/react";
+import { NFT } from "@thirdweb-dev/sdk";
 
 type Props = {};
 
@@ -26,6 +27,7 @@ const Create = (props: Props) => {
   );
 
   const ownedNfts = useOwnedNFTs(collectionContract, address);
+  const [selectNft, setSelectNft] = useState<NFT>();
 
   return (
     <div>

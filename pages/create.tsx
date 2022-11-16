@@ -40,6 +40,19 @@ const Create = (props: Props) => {
         <hr className="mb-5" />
 
         <p>Below you will find the NFT's you own in your wallet</p>
+
+        <div>
+          {ownedNfts?.data?.map((nft) => (
+            <div key={nft.metadata.id}>
+              <MediaRenderer
+                className="h-48 rounded-lg"
+                src={nft.metadata.image}
+              />
+              <p>{nft.metadata.name}</p>
+              <p>{nft.metadata.description}</p>
+            </div>
+          ))}
+        </div>
       </main>
     </div>
   );

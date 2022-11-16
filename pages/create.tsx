@@ -41,15 +41,18 @@ const Create = (props: Props) => {
 
         <p>Below you will find the NFT's you own in your wallet</p>
 
-        <div>
+        <div className="flex overflow-x-scroll space-x-2 p-4">
           {ownedNfts?.data?.map((nft) => (
-            <div key={nft.metadata.id}>
+            <div
+              key={nft.metadata.id}
+              className="flex flex-col space-y-2 card min-w-fit border-2 bg-gray-100"
+            >
               <MediaRenderer
                 className="h-48 rounded-lg"
                 src={nft.metadata.image}
               />
-              <p>{nft.metadata.name}</p>
-              <p>{nft.metadata.description}</p>
+              <p className="text-lg truncate font-bold">{nft.metadata.name}</p>
+              <p className="text-xs truncate">{nft.metadata.description}</p>
             </div>
           ))}
         </div>

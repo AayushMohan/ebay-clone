@@ -63,6 +63,19 @@ const Create = (props: Props) => {
             </div>
           ))}
         </div>
+        {selectedNft && (
+          <form action="">
+            <div>
+              <div className="flex flex-col p-10">
+                <label>Direct Listing / Fixed Price</label>
+                <input type="radio" name="listingType" />
+
+                <label>Auction</label>
+                <input type="radio" name="listingType" />
+              </div>
+            </div>
+          </form>
+        )}
       </main>
     </div>
   );

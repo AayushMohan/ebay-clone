@@ -28,6 +28,11 @@ const Create = (props: Props) => {
 
   const ownedNfts = useOwnedNFTs(collectionContract, address);
   const [selectedNft, setSelectedNft] = useState<NFT>();
+
+  const networkMismatch = useNetworkMismatch();
+
+  const [, switchNetwork] = useNetwork();
+
   const handleCreateListing = async (e: FormEvent<HTMLFormElement>) => {};
 
   return (

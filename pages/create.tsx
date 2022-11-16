@@ -27,7 +27,7 @@ const Create = (props: Props) => {
   );
 
   const ownedNfts = useOwnedNFTs(collectionContract, address);
-  const [selectNft, setSelectNft] = useState<NFT>();
+  const [selectedNft, setSelectedNft] = useState<NFT>();
 
   return (
     <div>
@@ -47,8 +47,12 @@ const Create = (props: Props) => {
           {ownedNfts?.data?.map((nft) => (
             <div
               key={nft.metadata.id}
-              onClick={() => setSelectNft(nft)}
-              className="flex flex-col space-y-2 card min-w-fit border-2 bg-gray-100"
+              onClick={() => setSelectedNft(nft)}
+              className={`flex flex-col space-y-2 card min-w-fit border-2 bg-gray-100 ${
+                nft.metadata.id === selectedNft?.metadata.id
+                  ? "border-black"
+                  : "border-transparent"
+              }`}
             >
               <MediaRenderer
                 className="h-48 rounded-lg"

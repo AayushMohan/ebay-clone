@@ -47,6 +47,7 @@ const Create = (props: Props) => {
           {ownedNfts?.data?.map((nft) => (
             <div
               key={nft.metadata.id}
+              onClick={() => setSelectNft(nft)}
               className="flex flex-col space-y-2 card min-w-fit border-2 bg-gray-100"
             >
               <MediaRenderer

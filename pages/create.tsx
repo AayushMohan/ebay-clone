@@ -20,6 +20,13 @@ const Create = (props: Props) => {
     "marketplace"
   );
 
+  const { contract: collectionContract } = useContract(
+    process.env.NEXT_PUBLIC_COLLECTION_CONTRACT,
+    "nft-collection"
+  );
+
+  const ownedNfts = useOwnedNFTs(collectionContract, address);
+
   return (
     <div>
       <Header />

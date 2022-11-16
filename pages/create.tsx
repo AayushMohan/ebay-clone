@@ -68,10 +68,20 @@ const Create = (props: Props) => {
             <div>
               <div className="flex flex-col p-10">
                 <label>Direct Listing / Fixed Price</label>
-                <input type="radio" name="listingType" />
+                <input
+                  type="radio"
+                  name="listingType"
+                  value="directListing"
+                  className="ml-auto h-10 w-10"
+                />
 
                 <label>Auction</label>
-                <input type="radio" name="listingType" />
+                <input
+                  type="radio"
+                  name="listingType"
+                  value="auctionListing"
+                  className="ml-auto h-10 w-10"
+                />
               </div>
             </div>
           </form>

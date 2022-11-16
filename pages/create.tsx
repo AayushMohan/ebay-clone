@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import Header from "../components/Header";
 import {
   useAddress,
@@ -28,6 +28,7 @@ const Create = (props: Props) => {
 
   const ownedNfts = useOwnedNFTs(collectionContract, address);
   const [selectedNft, setSelectedNft] = useState<NFT>();
+  const handleCreateListing = async (e: FormEvent<HTMLFormElement>) => {};
 
   return (
     <div>

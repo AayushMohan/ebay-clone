@@ -68,7 +68,7 @@ const addItems = (props: Props) => {
         <div className="flex flex-col justify-center items-center md:flex-row md:space-x-5 pt-5">
           <img
             className="border h-80 w-80 object-contain"
-            src="https://links.papareact.com/ucj"
+            src={preview || "https://links.papareact.com/ucj"}
             alt=""
           />
 

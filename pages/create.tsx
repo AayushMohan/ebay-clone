@@ -1,9 +1,14 @@
 import React from "react";
+import Header from "../components/Header";
 
 type Props = {};
 
-const create = (props: Props) => {
-  return <div>create</div>;
+const Create = (props: Props) => {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
-export default create;
+export default Create;

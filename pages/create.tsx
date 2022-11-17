@@ -17,11 +17,13 @@ import {
   NATIVE_TOKEN_ADDRESS,
 } from "@thirdweb-dev/sdk";
 import network from "../utils/network";
+import { useRouter } from "next/router";
 
 type Props = {};
 
 const Create = (props: Props) => {
   const address = useAddress();
+  const router = useRouter();
   const { contract } = useContract(
     process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT,
     "marketplace"
@@ -67,15 +69,23 @@ const Create = (props: Props) => {
 
     const { listingType, price } = target.elements;
     if (listingType.value === "directListing") {
-      createDirectListing({
-        assetContractAddress: process.env.NEXT_PUBLIC_COLLECTION_CONTRACT!,
-        tokenId: selectedNft.metadata.id,
-        currencyContractAddress: NATIVE_TOKEN_ADDRESS,
-        listingDurationInSeconds: 60 * 60 * 24 * 7, //1 Week
-        quantity: 1,
-        buyoutPricePerToken: price.value,
-        startTimestamp: new Date(),
-      });
+      createDirectListing(
+        {
+          assetContractAddress: process.env.NEXT_PUBLIC_COLLECTION_CONTRACT!,
+          tokenId: selectedNft.metadata.id,
+          currencyContractAddress: NATIVE_TOKEN_ADDRESS,
+          listingDurationInSeconds: 60 * 60 * 24 * 7, //1 Week
+          quantity: 1,
+          buyoutPricePerToken: price.value,
+          startTimestamp: new Date(),
+        },
+        {
+          onSuccess(data, variables, context) {
+            console.log("SUCCESS: ", data, variables, context);
+            router.push("/");
+          },
+        }
+      );
     }
   };
 

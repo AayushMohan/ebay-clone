@@ -43,6 +43,12 @@ const Create = (props: Props) => {
     }
 
     if (!selectedNft) return;
+
+    const target = e.target as typeof e.target & {
+      elements: { listingType: { value: string }; price: { value: string } };
+    };
+
+    const { listingType, price } = target.elements;
   };
 
   return (

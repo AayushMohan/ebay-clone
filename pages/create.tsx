@@ -10,7 +10,12 @@ import {
   useCreateAuctionListing,
   useCreateDirectListing,
 } from "@thirdweb-dev/react";
-import { NFT } from "@thirdweb-dev/sdk";
+import {
+  ChainId,
+  NFT,
+  NATIVE_TOKENS,
+  NATIVE_TOKEN_ADDRESS,
+} from "@thirdweb-dev/sdk";
 import network from "../utils/network";
 
 type Props = {};
@@ -62,6 +67,15 @@ const Create = (props: Props) => {
 
     const { listingType, price } = target.elements;
     if (listingType.value === "directListing") {
+      createDirectListing({
+        assetContractAddress: process.env.NEXT_PUBLIC_COLLECTION_CONTRACT!,
+        tokenId: selectedNft.metadata.id,
+        currencyContractAddress: NATIVE_TOKEN_ADDRESS,
+        listingDurationInSeconds: 60 * 60 * 24 * 7, //1 Week
+        quantity: 1,
+        buyoutPricePerToken: price.value,
+        startTimestamp: new Date(),
+      });
     }
   };
 

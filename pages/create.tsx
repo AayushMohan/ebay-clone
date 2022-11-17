@@ -11,6 +11,7 @@ import {
   useCreateDirectListing,
 } from "@thirdweb-dev/react";
 import { NFT } from "@thirdweb-dev/sdk";
+import network from "../utils/network";
 
 type Props = {};
 
@@ -33,7 +34,16 @@ const Create = (props: Props) => {
 
   const [, switchNetwork] = useNetwork();
 
-  const handleCreateListing = async (e: FormEvent<HTMLFormElement>) => {};
+  const handleCreateListing = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (networkMismatch) {
+      switchNetwork && switchNetwork(network);
+      return;
+    }
+
+    if (!selectedNft) return;
+  };
 
   return (
     <div>

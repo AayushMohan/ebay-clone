@@ -34,6 +34,18 @@ const Create = (props: Props) => {
 
   const [, switchNetwork] = useNetwork();
 
+  const {
+    mutate: createDirectListing,
+    isLoading,
+    error,
+  } = useCreateDirectListing(contract);
+
+  const {
+    mutate: createAuctionListing,
+    isLoading: isLoadingDirect,
+    error: errorDirect,
+  } = useCreateDirectListing(contract);
+
   const handleCreateListing = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

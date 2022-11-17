@@ -49,6 +49,8 @@ const Create = (props: Props) => {
     };
 
     const { listingType, price } = target.elements;
+    if (listingType.value === "directListing") {
+    }
   };
 
   return (

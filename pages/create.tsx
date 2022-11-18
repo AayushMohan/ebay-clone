@@ -84,6 +84,9 @@ const Create = (props: Props) => {
             console.log("SUCCESS: ", data, variables, context);
             router.push("/");
           },
+          onError(error, variables, context) {
+            console.log("ERROR: ", error, variables, context);
+          },
         }
       );
     }

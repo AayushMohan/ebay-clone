@@ -50,7 +50,7 @@ const ListingPage = () => {
               {listing.sellerAddress}
             </p>
           </div>
-          <div>
+          <div className="grid grid-cols-2 items-center py-2">
             <p className="font-bold ">Listing Type:</p>
             <p>
               {listing.type === ListingType.Direct

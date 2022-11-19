@@ -50,7 +50,7 @@ const ListingPage = () => {
             </p>
           </div>
           <div>
-            <p>Listing Type:</p>
+            <p className="font-bold ">Listing Type:</p>
           </div>
         </section>
       </main>

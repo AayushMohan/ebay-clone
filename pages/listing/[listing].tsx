@@ -14,6 +14,17 @@ const ListingPage = () => {
 
   const { data: listing, isLoading, error } = useListing(contract, listingId);
 
+  if (isLoading) {
+    return (
+      <div>
+        <Header />
+        <div>
+          <p>Loading Item....</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!listing) {
     return <div>Listing Not Found</div>;
   }

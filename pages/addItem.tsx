@@ -97,10 +97,10 @@ const addItems = (props: Props) => {
             <label className="font-light">Image of the Item</label>
             <input
               type="file"
-              onChange={(e) => {
-                if (e.target.files?.[0]) {
-                  setPreview(URL.createObjectURL(e.target.files[0]));
-                  setImage(e.target.files[0]);
+              onChange={(target: any) => {
+                if (target.files?.[0]) {
+                  setPreview(URL.createObjectURL(target.files[0]));
+                  setImage(target.files[0]);
                 }
               }}
             />

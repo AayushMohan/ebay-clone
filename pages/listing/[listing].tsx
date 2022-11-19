@@ -1,3 +1,4 @@
+import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { MediaRenderer, useContract, useListing } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import React from "react";
@@ -37,6 +38,18 @@ const ListingPage = () => {
         <div className="p-10 border mx-auto lg:mx-0 max-w-md lg:max-w-xl">
           <MediaRenderer src={listing.asset.image} />
         </div>
+
+        <section>
+          <div>
+            <h1>{listing.asset.name}</h1>
+            <p>{listing.asset.description}</p>
+            <p className="flex items-center text-xs sm:text-base">
+              <UserCircleIcon className="h-5" />
+              <span className="font-bold pr-1">Seller: </span>
+              {listing.sellerAddress}
+            </p>
+          </div>
+        </section>
       </main>
     </div>
   );

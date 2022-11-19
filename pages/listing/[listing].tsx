@@ -18,7 +18,7 @@ const ListingPage = () => {
     return (
       <div>
         <Header />
-        <div>
+        <div className="text-center animate-pulse text-blue-500">
           <p>Loading Item....</p>
         </div>
       </div>
@@ -35,7 +35,7 @@ const ListingPage = () => {
 
       <main>
         <div>
-          <MediaRenderer src={listing?.asset.image} />
+          <MediaRenderer src={listing.asset.image} />
         </div>
       </main>
     </div>

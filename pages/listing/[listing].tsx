@@ -1,4 +1,4 @@
-import { useContract, useListing } from "@thirdweb-dev/react";
+import { MediaRenderer, useContract, useListing } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import React from "react";
 import Header from "../../components/Header";
@@ -19,7 +19,9 @@ const ListingPage = () => {
       <Header />
 
       <main>
-        <div>{/* <MediaRenderer /> */}</div>
+        <div>
+          <MediaRenderer src={listing?.asset.image} />
+        </div>
       </main>
     </div>
   );

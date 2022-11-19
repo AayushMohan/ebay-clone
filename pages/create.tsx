@@ -100,7 +100,7 @@ const Create = (props: Props) => {
           currencyContractAddress: NATIVE_TOKEN_ADDRESS,
           listingDurationInSeconds: 60 * 60 * 24 * 7, //1 week,
           quantity: 1,
-          reservePricePerToken: 0,
+          // reservePricePerToken: 0,
         },
         {
           onSuccess(data, variables, context) {

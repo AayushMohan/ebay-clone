@@ -41,7 +41,7 @@ const ListingPage = () => {
 
         <section>
           <div>
-            <h1>{listing.asset.name}</h1>
+            <h1 className="text-xl font-bold">{listing.asset.name}</h1>
             <p>{listing.asset.description}</p>
             <p className="flex items-center text-xs sm:text-base">
               <UserCircleIcon className="h-5" />

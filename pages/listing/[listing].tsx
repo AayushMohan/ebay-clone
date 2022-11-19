@@ -1,5 +1,6 @@
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { MediaRenderer, useContract, useListing } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
 import React from "react";
 import Header from "../../components/Header";
@@ -51,6 +52,11 @@ const ListingPage = () => {
           </div>
           <div>
             <p className="font-bold ">Listing Type:</p>
+            <p>
+              {listing.type === ListingType.Direct
+                ? "Direct Listing"
+                : "Auction Listing"}
+            </p>
           </div>
         </section>
       </main>

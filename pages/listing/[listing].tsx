@@ -49,6 +49,9 @@ const ListingPage = () => {
               {listing.sellerAddress}
             </p>
           </div>
+          <div>
+            <p>Listing Type:</p>
+          </div>
         </section>
       </main>
     </div>

@@ -51,7 +51,7 @@ const ListingPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-2 items-center py-2">
-            <p className="font-bold ">Listing Type:</p>
+            {/* <p className="font-bold ">Listing Type:</p> */}
             <p>
               {listing.type === ListingType.Direct
                 ? "Direct Listing"

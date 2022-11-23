@@ -82,6 +82,9 @@ const ListingPage = () => {
             {/* Remaining time on auction hoes here... */}
 
             <input type="text" placeholder="Enter value..." />
+            <button>
+              {listing.type === ListingType.Direct ? "Offer" : "Bid"}
+            </button>
           </div>
         </section>
       </main>

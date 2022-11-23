@@ -40,7 +40,7 @@ const ListingPage = () => {
           <MediaRenderer src={listing.asset.image} />
         </div>
 
-        <section>
+        <section className="flex-1 space-y-5 pb-20 lg:pb-0">
           <div>
             <h1 className="text-xl font-bold">{listing.asset.name}</h1>
             <p>{listing.asset.description}</p>

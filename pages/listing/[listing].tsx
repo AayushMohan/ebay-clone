@@ -70,10 +70,10 @@ const ListingPage = () => {
           </div>
 
           {/* IF DIRECT, show offers here... */}
-          <div>
-            <hr />
+          <div className="grid grid-cols-2 space-y-2 items-center justify-end">
+            <hr className="col-span-2 font-bold" />
 
-            <p>
+            <p className="col-span-2">
               {listing.type === ListingType.Direct
                 ? "Make an Offer"
                 : "Bid on this Auction"}

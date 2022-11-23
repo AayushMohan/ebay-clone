@@ -59,7 +59,7 @@ const ListingPage = () => {
             </p>
 
             <p className="font-bold">Buy it Now Price:</p>
-            <p>
+            <p className="text-4xl font-bold">
               {listing.buyoutCurrencyValuePerToken.displayValue}
               {listing.buyoutCurrencyValuePerToken.symbol}
             </p>

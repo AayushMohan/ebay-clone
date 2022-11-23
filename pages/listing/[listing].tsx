@@ -64,7 +64,9 @@ const ListingPage = () => {
               {listing.buyoutCurrencyValuePerToken.symbol}
             </p>
 
-            <button>Buy Now</button>
+            <button className="col-start-2 mt-2 bg-blue-600 font-bold text-white rounded-full w-44 px-10 py-4">
+              Buy Now
+            </button>
           </div>
         </section>
       </main>

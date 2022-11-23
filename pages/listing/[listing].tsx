@@ -63,6 +63,8 @@ const ListingPage = () => {
               {listing.buyoutCurrencyValuePerToken.displayValue}
               {listing.buyoutCurrencyValuePerToken.symbol}
             </p>
+
+            <button>Buy Now</button>
           </div>
         </section>
       </main>

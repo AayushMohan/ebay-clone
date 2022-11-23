@@ -68,6 +68,17 @@ const ListingPage = () => {
               Buy Now
             </button>
           </div>
+
+          {/* IF DIRECT, show offers here... */}
+          <div>
+            <hr />
+
+            <p>
+              {listing.type === ListingType.Direct
+                ? "Make an Offer"
+                : "Bid on this Auction"}
+            </p>
+          </div>
         </section>
       </main>
     </div>

@@ -81,7 +81,11 @@ const ListingPage = () => {
 
             {/* Remaining time on auction hoes here... */}
 
-            <input type="text" placeholder="Enter value..." />
+            <input
+              className="border p-2 rounded-lg mr-5"
+              type="text"
+              placeholder="Enter value..."
+            />
             <button className="bg-red-600 font-bold text-white rounded-full w-44 py-4 px-10">
               {listing.type === ListingType.Direct ? "Offer" : "Bid"}
             </button>

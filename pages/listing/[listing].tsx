@@ -78,6 +78,10 @@ const ListingPage = () => {
                 ? "Make an Offer"
                 : "Bid on this Auction"}
             </p>
+
+            {/* Remaining time on auction hoes here... */}
+
+            <input type="text" placeholder="Enter value..." />
           </div>
         </section>
       </main>

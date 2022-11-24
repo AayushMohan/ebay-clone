@@ -2,6 +2,7 @@ import { UserCircleIcon } from "@heroicons/react/24/outline";
 import { MediaRenderer, useContract, useListing } from "@thirdweb-dev/react";
 import { ListingType } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
+import { format } from "node:path/win32";
 import React from "react";
 import Header from "../../components/Header";
 
@@ -84,7 +85,7 @@ const ListingPage = () => {
             <input
               className="border p-2 rounded-lg mr-5"
               type="text"
-              placeholder="Enter value..."
+              placeholder=""
             />
             <button className="bg-red-600 font-bold text-white rounded-full w-44 py-4 px-10">
               {listing.type === ListingType.Direct ? "Offer" : "Bid"}

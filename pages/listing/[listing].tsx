@@ -27,7 +27,7 @@ const ListingPage = () => {
     if (listing.type === ListingType.Auction) {
       return "Enter The Bid Amount";
 
-      //TODO Improve Bid Amount
+      //TODO: Improve Bid Amount
     }
   };
 
@@ -84,7 +84,7 @@ const ListingPage = () => {
             </button>
           </div>
 
-          {/* IF DIRECT, show offers here... */}
+          {/* TODO: IF DIRECT, show offers here... */}
           <div className="grid grid-cols-2 space-y-2 items-center justify-end">
             <hr className="col-span-2 font-bold" />
 
@@ -94,7 +94,16 @@ const ListingPage = () => {
                 : "Bid on this Auction"}
             </p>
 
-            {/* Remaining time on auction hoes here... */}
+            {/* FIXME: Remaining time on auction goes here... */}
+            {listing.type === ListingType.Auction && (
+              <>
+                <p>Current Minimum Bid:</p>
+                <p>...</p>
+
+                <p>Time Remaining:</p>
+                <p>...</p>
+              </>
+            )}
 
             <input
               className="border p-2 rounded-lg mr-5"

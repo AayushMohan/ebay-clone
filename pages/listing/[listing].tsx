@@ -17,6 +17,20 @@ const ListingPage = () => {
 
   const { data: listing, isLoading, error } = useListing(contract, listingId);
 
+  const formatPlaceholder = () => {
+    if (!listing) return;
+
+    if (listing.type === ListingType.Direct) {
+      return "Enter Offer Amount";
+    }
+
+    if (listing.type === ListingType.Auction) {
+      return "Enter The Bid Amount";
+
+      //TODO Improve Bid Amount
+    }
+  };
+
   if (isLoading) {
     return (
       <div>
@@ -85,7 +99,7 @@ const ListingPage = () => {
             <input
               className="border p-2 rounded-lg mr-5"
               type="text"
-              placeholder=""
+              placeholder={formatPlaceholder()}
             />
             <button className="bg-red-600 font-bold text-white rounded-full w-44 py-4 px-10">
               {listing.type === ListingType.Direct ? "Offer" : "Bid"}

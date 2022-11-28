@@ -18,6 +18,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Countdown from "react-countdown";
 import network from "../../utils/network";
+import { ethers } from "ethers";
 
 const ListingPage = () => {
   const router = useRouter();
@@ -35,9 +36,16 @@ const ListingPage = () => {
     "marketplace"
   );
 
+  const { mutate: makeBid } = useMakeBid(contract);
+
+  const { data: offers } = useOffers(contract, listingId);
+
+  const { mutate: makeOffer } = useMakeOffer(contract);
   const { mutate: buyNow } = useBuyNow(contract);
 
   const { data: listing, isLoading, error } = useListing(contract, listingId);
+
+  console.log(offers);
 
   useEffect(() => {
     if (!listingId || !contract || !listing) return;
@@ -115,6 +123,33 @@ const ListingPage = () => {
 
       // Direct Listing
       if (listing?.type === ListingType.Direct) {
+        if (
+          listing.buyoutPrice.toString() ===
+          ethers.utils.parseEther(bidAmount).toString()
+        ) {
+          console.log("Buyout Price met, buying NFT...");
+
+          buyNft();
+          return;
+        }
+        console.log("Buyout price not met, making offer...");
+        await makeOffer(
+          {
+            quantity: 1,
+            listingId,
+            pricePerToken: bidAmount,
+          },
+          {
+            onSuccess(data, variables, context) {
+              alert("Offer made successfully!");
+              console.log("SUCCESS", data, variables, context);
+            },
+            onError(error, variables, context) {
+              alert("ERROR: Offer could not be made!");
+              console.log("ERROR", error, variables, context);
+            },
+          }
+        );
       }
 
       // Auction Listing

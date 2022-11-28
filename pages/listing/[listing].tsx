@@ -10,6 +10,7 @@ import {
   useMakeOffer,
   useBuyNow,
   useAddress,
+  useAcceptDirectListingOffer,
 } from "@thirdweb-dev/react";
 import { ListingType, NATIVE_TOKENS } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
@@ -42,9 +43,12 @@ const ListingPage = () => {
   const { data: offers } = useOffers(contract, listingId);
 
   const { mutate: makeOffer } = useMakeOffer(contract);
+
   const { mutate: buyNow } = useBuyNow(contract);
 
   const { data: listing, isLoading, error } = useListing(contract, listingId);
+
+  const { mutate: acceptOffer } = useAcceptDirectListingOffer(contract);
 
   console.log(offers);
 
@@ -246,7 +250,7 @@ const ListingPage = () => {
                 {offers.length > 0 ? offers.length : 0}
               </p>
 
-              {offers.map((offer) => (
+              {offers?.map((offer) => (
                 <>
                   <p className="flex items-center ml-5 text-sm italic">
                     <UserCircleIcon className="h-3 mr-2" />
@@ -270,7 +274,30 @@ const ListingPage = () => {
 
                     {listing.sellerAddress === address && (
                       <button
-                        onClick={() => acceptOffer(offer)}
+                        onClick={() =>
+                          acceptOffer(
+                            {
+                              listingId,
+                              addressOfOfferor: offer.offeror,
+                            },
+                            {
+                              onSuccess(data, variables, context) {
+                                alert("Offer accepted successfully!");
+                                console.log(
+                                  "SUCCESS",
+                                  data,
+                                  variables,
+                                  context
+                                );
+                                router.replace("/");
+                              },
+                              onError(error, variables, context) {
+                                alert("Error: Offer could not be accepted!");
+                                console.log("Error", error, variables, context);
+                              },
+                            }
+                          )
+                        }
                         className="p-2 w-32 bg-red-500/50 rounded-lg font-bold text-xs cursor-pointer"
                       >
                         Accept Offer

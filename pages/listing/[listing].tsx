@@ -22,6 +22,7 @@ import { ethers } from "ethers";
 
 const ListingPage = () => {
   const router = useRouter();
+  const address = useAddress();
   const { listingId } = router.query as { listingId: string };
   const [bidAmount, setBidAmount] = useState("");
   const [, switchNetwork] = useNetwork();

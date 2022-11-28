@@ -11,7 +11,7 @@ import {
   useBuyNow,
   useAddress,
 } from "@thirdweb-dev/react";
-import { ListingType } from "@thirdweb-dev/sdk";
+import { ListingType, NATIVE_TOKENS } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
 import { format } from "node:path/win32";
 import React, { useEffect, useState } from "react";
@@ -238,6 +238,39 @@ const ListingPage = () => {
           </div>
 
           {/* TODO: IF DIRECT, show offers here... */}
+          {listing.type === ListingType.Direct && offers && (
+            <div className="grid grid-cols-2 gap-y-2">
+              <p className="font-bold">Offers:</p>
+              <p className="font-bold">
+                {offers.length > 0 ? offers.length : 0}
+              </p>
+
+              {offers.map((offer) => (
+                <>
+                  <p className="flex items-center ml-5 text-sm italic">
+                    <UserCircleIcon className="h-3 mr-2" />
+                    {offer.offerer.slice(0, 5) +
+                      "..." +
+                      offer.offeror.slice(-5)}
+                  </p>
+                  <div>
+                    <p
+                      key={
+                        offer.listingId +
+                        offer.offeror +
+                        offer.totalOfferAmount.toString()
+                      }
+                      className="text-sm italic"
+                    >
+                      {ethers.utils.formatEther(offer.totalOfferAmount)}
+                      {""}
+                      {NATIVE_TOKENS[network].symbol}
+                    </p>
+                  </div>
+                </>
+              ))}
+            </div>
+          )}
           <div className="grid grid-cols-2 space-y-2 items-center justify-end">
             <hr className="col-span-2 font-bold" />
 

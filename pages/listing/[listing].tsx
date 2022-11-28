@@ -22,6 +22,7 @@ const ListingPage = () => {
   const router = useRouter();
   const { listingId } = router.query as { listingId: string };
   const [bidAmount, setBidAmount] = useState("");
+  const [networks, setNetworks] = useState("");
   const [minimumNextBid, setMinimumNextBid] = useState<{
     displayValue: string;
     symbol: string;

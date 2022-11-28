@@ -266,6 +266,15 @@ const ListingPage = () => {
                       {""}
                       {NATIVE_TOKENS[network].symbol}
                     </p>
+
+                    {listing.sellerAddress === address && (
+                      <button
+                        onClick={() => acceptOffer(offer)}
+                        className="p-2 w-32 bg-red-500/50 rounded-lg font-bold text-xs cursor-pointer"
+                      >
+                        Accept Offer
+                      </button>
+                    )}
                   </div>
                 </>
               ))}

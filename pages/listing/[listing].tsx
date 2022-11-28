@@ -3,12 +3,16 @@ import { MediaRenderer, useContract, useListing } from "@thirdweb-dev/react";
 import { ListingType } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
 import { format } from "node:path/win32";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 
 const ListingPage = () => {
   const router = useRouter();
   const { listingId } = router.query as { listingId: string };
+  const [minimumNextBid, setMinimumNextBid] = useState<{
+    displayValue: string;
+    symbol: string;
+  }>();
 
   const { contract } = useContract(
     process.env.NEXT_PUBLIC_MARKETPLACE_CONTRACT,
@@ -16,6 +20,29 @@ const ListingPage = () => {
   );
 
   const { data: listing, isLoading, error } = useListing(contract, listingId);
+
+  useEffect(() => {
+    if (!listingId || !contract || !listing) return;
+
+    if (listing.type === ListingType.Auction) {
+      fetchMinNextBid();
+    }
+  }, [!listingId, !listing, !contract]);
+
+  const fetchMinNextBid = async () => {
+    if (!listingId || !contract) return;
+
+    const { displayValue, symbol } = await contract.getMinimumNextBid(
+      listingId
+    );
+
+    setMinimumNextBid({
+      displayValue: displayValue,
+      symbol: symbol,
+    });
+  };
+
+  console.log(minimumNextBid);
 
   const formatPlaceholder = () => {
     if (!listing) return;
@@ -25,7 +52,9 @@ const ListingPage = () => {
     }
 
     if (listing.type === ListingType.Auction) {
-      return "Enter The Bid Amount";
+      return Number(minimumNextBid?.displayValue) === 0
+        ? "Enter Bid Amount"
+        : `${minimumNextBid?.displayValue} ${minimumNextBid?.symbol} or more`;
 
       //TODO: Improve Bid Amount
     }

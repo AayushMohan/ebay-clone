@@ -143,6 +143,8 @@ const ListingPage = () => {
             onSuccess(data, variables, context) {
               alert("Offer made successfully!");
               console.log("SUCCESS", data, variables, context);
+
+              setBidAmount("");
             },
             onError(error, variables, context) {
               alert("ERROR: Offer could not be made!");
@@ -154,6 +156,25 @@ const ListingPage = () => {
 
       // Auction Listing
       if (listing?.type === ListingType.Auction) {
+        console.log("Making Bid...");
+
+        await makeBid(
+          {
+            listingId,
+            bid: bidAmount,
+          },
+          {
+            onSuccess(data, variables, context) {
+              alert("Bid made successfully!");
+              console.log("SUCCESS", data, variables, context);
+              setBidAmount("");
+            },
+            onError(error, variables, context) {
+              alert("ERROR: Bid could not be made!");
+              console.log("ERROR", error, variables, context);
+            },
+          }
+        );
       }
     } catch (error) {
       console.error(error);

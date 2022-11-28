@@ -1,14 +1,27 @@
 import { UserCircleIcon } from "@heroicons/react/24/outline";
-import { MediaRenderer, useContract, useListing } from "@thirdweb-dev/react";
+import {
+  MediaRenderer,
+  useContract,
+  useListing,
+  useNetwork,
+  useNetworkMismatch,
+  useMakeBid,
+  useOffers,
+  useMakeOffer,
+  useBuyNow,
+  useAddress,
+} from "@thirdweb-dev/react";
 import { ListingType } from "@thirdweb-dev/sdk";
 import { useRouter } from "next/router";
 import { format } from "node:path/win32";
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
+import Countdown from "react-countdown";
 
 const ListingPage = () => {
   const router = useRouter();
   const { listingId } = router.query as { listingId: string };
+  const [bidAmount, setBidAmount] = useState("");
   const [minimumNextBid, setMinimumNextBid] = useState<{
     displayValue: string;
     symbol: string;
@@ -57,6 +70,13 @@ const ListingPage = () => {
         : `${minimumNextBid?.displayValue} ${minimumNextBid?.symbol} or more`;
 
       //TODO: Improve Bid Amount
+    }
+  };
+
+  const createBidOrOffer = async () => {
+    try {
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -127,19 +147,27 @@ const ListingPage = () => {
             {listing.type === ListingType.Auction && (
               <>
                 <p>Current Minimum Bid:</p>
-                <p>...</p>
+                <p>
+                  {minimumNextBid?.displayValue} {minimumNextBid?.symbol}
+                </p>
 
-                <p>Time Remaining:</p>
-                <p>...</p>
+                <p>Time Remaining</p>
+                <Countdown
+                  date={Number(listing.endTimeInEpochSeconds.toString()) * 1000}
+                />
               </>
             )}
 
             <input
               className="border p-2 rounded-lg mr-5"
               type="text"
+              onChange={(e) => setBidAmount(e.target.value)}
               placeholder={formatPlaceholder()}
             />
-            <button className="bg-red-600 font-bold text-white rounded-full w-44 py-4 px-10">
+            <button
+              onClick={createBidOrOffer}
+              className="bg-red-600 font-bold text-white rounded-full w-44 py-4 px-10"
+            >
               {listing.type === ListingType.Direct ? "Offer" : "Bid"}
             </button>
           </div>

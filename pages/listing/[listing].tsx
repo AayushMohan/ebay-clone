@@ -35,6 +35,8 @@ const ListingPage = () => {
     "marketplace"
   );
 
+  const { mutate: buyNow } = useBuyNow(contract);
+
   const { data: listing, isLoading, error } = useListing(contract, listingId);
 
   useEffect(() => {
@@ -74,6 +76,34 @@ const ListingPage = () => {
 
       //TODO: Improve Bid Amount
     }
+  };
+
+  const buyNft = async () => {
+    if (networkMismatch) {
+      switchNetwork && switchNetwork(network);
+      return;
+    }
+
+    if (!listingId || !contract || !listing) return;
+
+    await buyNow(
+      {
+        id: listingId,
+        buyAmount: 1,
+        type: listing.type,
+      },
+      {
+        onSuccess(data, variables, context) {
+          alert("NFT Bought Successfully!");
+          console.log("SUCCESS", data);
+          router.replace("/");
+        },
+        onError(error, variables, context) {
+          alert("ERROR: NFT could not be bought!");
+          console.log("ERROR", error);
+        },
+      }
+    );
   };
 
   const createBidOrOffer = async () => {
@@ -143,7 +173,10 @@ const ListingPage = () => {
               {listing.buyoutCurrencyValuePerToken.symbol}
             </p>
 
-            <button className="col-start-2 mt-2 bg-blue-600 font-bold text-white rounded-full w-44 px-10 py-4">
+            <button
+              onClick={buyNft}
+              className="col-start-2 mt-2 bg-blue-600 font-bold text-white rounded-full w-44 px-10 py-4"
+            >
               Buy Now
             </button>
           </div>

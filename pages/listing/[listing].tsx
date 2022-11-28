@@ -17,12 +17,14 @@ import { format } from "node:path/win32";
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Countdown from "react-countdown";
+import network from "../../utils/network";
 
 const ListingPage = () => {
   const router = useRouter();
   const { listingId } = router.query as { listingId: string };
   const [bidAmount, setBidAmount] = useState("");
-  const [networks, setNetworks] = useState("");
+  const [, switchNetwork] = useNetwork();
+  const networkMismatch = useNetworkMismatch();
   const [minimumNextBid, setMinimumNextBid] = useState<{
     displayValue: string;
     symbol: string;
@@ -76,6 +78,18 @@ const ListingPage = () => {
 
   const createBidOrOffer = async () => {
     try {
+      if (networkMismatch) {
+        switchNetwork && switchNetwork(network);
+        return;
+      }
+
+      // Direct Listing
+      if (listing?.type === ListingType.Direct) {
+      }
+
+      // Auction Listing
+      if (listing?.type === ListingType.Auction) {
+      }
     } catch (error) {
       console.error(error);
     }
